@@ -1,5 +1,5 @@
 # DateTime Library
-A light weight date time library over ctime
+A light weight date time library wrapper over ctime
 
 Google test will be downloaded from GitHub and built with the project
 

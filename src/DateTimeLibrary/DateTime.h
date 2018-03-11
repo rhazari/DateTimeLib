@@ -70,13 +70,26 @@ public:
         m_tm.tm_mon = m_date.m_month - 1;
         m_tm.tm_mday = m_date.m_day;
         m_tm.tm_year = m_date.m_year - 1900;
+        
         // Time
         m_tm.tm_hour = m_time.m_hrs;
         m_tm.tm_min = m_time.m_mins;
         m_tm.tm_sec = m_time.m_secs;
         m_sinceEpoch = std::mktime(&m_tm);
-        if (m_tm.tm_mon != m_date.m_month - 1 || m_tm.tm_mday != m_date.m_day || m_tm.tm_year != m_date.m_year - 1900 ||
-            m_tm.tm_hour != m_time.m_hrs || m_tm.tm_min != m_time.m_mins || m_tm.tm_sec != m_time.m_secs || m_sinceEpoch == -1)
+        
+        if (m_tm.tm_mon != m_date.m_month - 1)
+            throw std::runtime_error("Invalid month entry");
+        if (m_tm.tm_mday != m_date.m_day)
+            throw std::runtime_error("Invalid day entry");
+        if (m_tm.tm_year != m_date.m_year - 1900)
+            throw std::runtime_error("Invalid year entry");
+        if (m_tm.tm_hour != m_time.m_hrs)
+            throw std::runtime_error("Invalid hour entry");
+        if (m_tm.tm_min != m_time.m_mins)
+            throw std::runtime_error("Invalid minute entry");
+        if (m_tm.tm_sec != m_time.m_secs)
+            throw std::runtime_error("Invalid seconds entry");
+        if (m_sinceEpoch == -1)
             throw std::runtime_error("Invalid Date Time value for the constructor");
     }
 
