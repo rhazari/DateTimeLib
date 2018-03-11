@@ -1,7 +1,14 @@
 #include "gtest/gtest.h"
+#include "DateTimeTest.h"
 #include "DateTime.h"
 
-using ::testing::Test;
+DateTimeTest::DateTimeTest() {}
+
+DateTimeTest::~DateTimeTest() {};
+
+void DateTimeTest::SetUp() {};
+
+void DateTimeTest::TearDown() {};
 
 //// return type - vector<KString> {Day, Month, Date, Hour, Minute, Seconds, Year}
 //std::vector<KString> tokenizeDateTimeString(std::string _dateTime)

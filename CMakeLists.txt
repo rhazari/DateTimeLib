@@ -1,12 +1,13 @@
-project(DateTimeLibrary)
-add_compile_options(-std=c++14)
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
+
+project(GoogleTestSampleProject)
+
+set(CMAKE_CXX_STANDARD 14)
+if(CMAKE_COMPILER_IS_GNUCXX)
+    add_definitions(-std=gnu++0x)
+endif()
 
 enable_testing()
 
-include(build/conanbuildinfo.cmake)
-CONAN_BASIC_SETUP()
-
-INCLUDE_DIRECTORIES(src)
-ADD_EXECUTABLE(dateTime_test gtest/DateTimeTest.cpp)
-TARGET_LINK_LIBRARIES(dateTime_test ${CONAN_LIBS})
+add_subdirectory(src)
+add_subdirectory(test)
