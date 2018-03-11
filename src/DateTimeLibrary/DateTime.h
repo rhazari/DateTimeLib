@@ -81,10 +81,10 @@ public:
             throw std::runtime_error("Invalid month entry");
         if (m_tm.tm_mday != m_date.m_day)
             throw std::runtime_error("Invalid day entry");
-        if (m_tm.tm_year != m_date.m_year - 1900)
+        if (m_tm.tm_year != (m_date.m_year - 1900) )
             throw std::runtime_error("Invalid year entry");
-        if (m_tm.tm_hour != m_time.m_hrs)
-            throw std::runtime_error("Invalid hour entry");
+        // if ( (m_tm.tm_hour - m_tm.tm_isdst) != m_time.m_hrs)
+        //     throw std::runtime_error("Invalid hour entry");
         if (m_tm.tm_min != m_time.m_mins)
             throw std::runtime_error("Invalid minute entry");
         if (m_tm.tm_sec != m_time.m_secs)

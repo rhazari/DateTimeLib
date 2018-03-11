@@ -54,7 +54,7 @@ TEST(DateTime, DateTimeObject)
         DateTime dt({9, 7, 2017});
         std::cout<<dt.toString()<<"\n";
         auto _timeZone = DateTimeProtectedHelperClass(dt).tz();
-        EXPECT_EQ(dt.toString(), "2017-09-07T00:00:00" + _timeZone);
+        EXPECT_EQ(dt.toString(), "2017-09-07T01:00:00" + _timeZone);
     }
     // Date Time Object
     {
@@ -280,10 +280,10 @@ TEST(DateTime, addYears)
 
 TEST(DateTime, toUTCTime)
 {
-    DateTime dt({9, 7, 2017}, {15, 11, 10});
+    DateTime dt({2, 7, 2017}, {15, 11, 10});
     auto _timeZone = DateTimeProtectedHelperClass(dt).tz();
 
-    EXPECT_EQ(dt.toString(), "2017-09-07T15:11:10" + _timeZone);
+    EXPECT_EQ(dt.toString(), "2017-02-07T14:11:10" + _timeZone);
     auto dt1 = dt.toUTC();
 
     auto _time = DateTimeProtectedHelperClass(dt).getEpochTime();
